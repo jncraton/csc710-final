@@ -148,8 +148,94 @@ Is precisely the same as:
 
 String notation should always be preferred to list of grapheme.
 
+Names, Scope, and Binding
+=========================
+
+Names
+-----
+
+----
+
+Names may include any non-whitespace characters and must not start with a number. They may not include operators in their names.
+
+There are no variable declarations. Variables are inferred to be local if they are assigned in a function.
+
+Scope
+-----
+
+----
+
+The language uses function scope. Function local variable scope is handled lexically, so nested functions have access to their parent's scope, but other called functions do not.[10]
+
+Binding
+-------
+
+----
+
+The language uses
+
+Control Flow
+============
+
+if-then-else
+------------
+
+The language provides a fairly standard if-then-else expression as:
+
+```
+result = if True
+  10
+else
+  20
+
+#result is 10
+```
+
+for
+---
+
+---
+
+For loops are provides very simply as:
+
+```
+for i in list
+  do something
+```
+
+If the variable name is left out, one will be automatically selected to not collide with other names starting from i. For example, the following is valid:
+
+```
+for list_a
+  for list_b
+    print(i, j)
+```
+
+Comparison
+----------
+
+----
+
+Comparison - Comparison is always done by value.
+
+Operators
+---------
+
+----
+
+Mathematical syntax is used whenever possible for operators for example:
+
+- and is ∧
+- or is ∨
+- not is ¬
+
+Features
+========
+
 Derived Ranges
 --------------
+
+----
 
 Consider iterating over the even integers between 1 and 100 in JavaScript:
 
@@ -170,15 +256,6 @@ We might like to be able to do something like this:
       \\ Do something with i
 
 It's natural for us to grasp ideas by example, and a computer should be able to construct programs in the same way. These sorts of derived ranges are one practical example of how that can happen.
-
-- 3 - Names, Scope, Binding
-  - Names - Names include any non-whitespace characters and must not start with a number.
-  - Functions are first-class objects. All function declarations are anonymous.
-- 6 - Control Flow
-  - Comparison - Comparison is always done by value.
-  - Words (`and`, `or`, `not`) for boolean operations. Alternatively, their mathematical syntax can be used (∧,∨,¬).
-  - There are no variable declarations. Variables are inferred to be local if they are assigned in a function.
-  - There are no statements. Everything is an expression. Consider the following:
 
 Derived Operations
 ------------------
@@ -410,3 +487,4 @@ References
 7. http://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD660.html
 8. https://softwareengineering.stackexchange.com/questions/148790/is-the-14th-line-of-the-zen-of-python-a-reference-to-dijkstra#148794
 9. https://en.wikipedia.org/wiki/Anonymous_function
+10. https://en.wikipedia.org/wiki/Scope_(computer_science)#Function_scope
