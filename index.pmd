@@ -17,6 +17,98 @@
 >
 > - Edsger Dijkstra [7][8]
 
+Guiding Principles
+==================
+
+1. Correct code should look correct. Incorrect code should look incorrect.
+  - White space is significant
+  - Side effects should be loud and obvious
+2. There should be exactly one correct way to perform a simple task.
+  - The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
+3. Inline testing and documentation is a core construct.
+  - Built in unit testing at the function level. Compiler warnings available and enabled by default when unit tests are missing. All unit tests are completed at compile time and a failed test is a failed build.
+4. Where existing mathematical notation exists, it should be used in place of inventing to notation.
+  - If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
+5. Boilerplate and extraneous syntax should be kept to an absolute miniumum.
+  - Significant whitespace
+  - Many aspects of the syntax are optional and should only be included when required.
+
+
+Functions
+=========
+
+Functions should be seen as the core construct of the language. There is exactly one way to define a function. Note that the following is an expression, and not a statment. It returns a function:
+
+```
+ƒ(params)
+  function body
+```
+
+To assign a function to a variable, one would do the following:
+
+```
+my_fn = 
+  ƒ(params)
+    function body
+```
+
+Functions may be bound to other objects. When they are called in this way, the first parameter of the function is the object that they are bound to.
+
+```
+my_obj.func = 
+  ƒ(self)
+    function body with self mapped to my_obj
+```
+
+Lists
+=====
+
+The following expression returns a list of strings:
+
+```
+<indent>
+"item1"
+"item2"
+```
+
+This can be bound to a variable as:
+
+```
+my_list = 
+  "item1"
+  "item2"
+```
+
+Tuples
+======
+
+Tuples are a data type of fixed size composed of other datatypes. The following would be a tuple of length 3:
+
+```
+1,"two",3
+```
+
+Objects
+=======
+
+Note that objects are simply lists whose members are key/value tuples. When a list is made up of tuples where the first item is hashable, the list is considered to be an object. The following expression returns an "object":
+
+```
+<indent>
+item1, 1
+item2, 2
+```
+
+This expression may be bound to a varibale as:
+
+```
+my_obj = 
+  item1, 1
+  item2, 2
+```
+
+
+
 Derived Ranges
 --------------
 
@@ -152,18 +244,6 @@ Consider the basic integer. It's primary value is some number, and it's secondar
 
 Other types have a primary type such as `list` and a secondary type containing it's items.
 
-Guiding Principles
-==================
-
-1. Correct code should look correct. Incorrect code should look incorrect.
-  - White space is significant
-  - Side effects should be loud and obvious
-2. There should be exactly one correct way to perform a simple task.
-  - The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
-3. Inline testing and documentation is a core construct.
-4. Where existing mathematical notation exists, it should be used in place of inventing to notation.
-5. Variables cannot be set to values. They may only be set to expressions.
-
 OOP
 ===
 
@@ -171,7 +251,7 @@ This language does not seek to provide syntactic sugar for object oriented progr
 
 Types
 =====
-This language is strongly and statically types. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1].
+This language is strongly and statically typed. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1].
 
 Literals
 --------
