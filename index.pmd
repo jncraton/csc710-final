@@ -33,35 +33,51 @@ Guiding Principles
   - Significant whitespace
   - Many aspects of the syntax are optional and should only be included when required.
 
+Types
+=====
+
+Literals
+--------
+
+----
+
+The following literals are provides:
+
+- Grapheme - A single Unicode grapheme
+  - e.g. 'a' or '→'
+- Number - A scalable number supporting unlimited integer precision and precision no worse than an IEEE 64-bit float for floating point operations.
+  - e.g. 1.0 or 1 or 1e300
 
 Functions
-=========
+---------
+
+----
 
 Functions should be seen as the core construct of the language. There is exactly one way to define a function. Note that the following is an expression, and not a statment. It returns a function:
 
 ```
-ƒ(params)
+params →
   function body
 ```
 
 To assign a function to a variable, one would do the following:
 
 ```
-my_fn = 
-  ƒ(params)
-    function body
+my_fn = params →
+  function body
 ```
 
 Functions may be bound to other objects. When they are called in this way, the first parameter of the function is the object that they are bound to.
 
 ```
-my_obj.func = 
-  ƒ(self)
-    function body with self mapped to my_obj
+my_obj.func = self →
+  function body with self mapped to my_obj
+
+my_obj.func()
 ```
 
 Lists
-=====
+-----
 
 The following expression returns a list of strings:
 
@@ -80,7 +96,7 @@ my_list =
 ```
 
 Tuples
-======
+------
 
 Tuples are a data type of fixed size composed of other datatypes. The following would be a tuple of length 3:
 
@@ -89,7 +105,7 @@ Tuples are a data type of fixed size composed of other datatypes. The following 
 ```
 
 Objects
-=======
+-------
 
 Note that objects are simply lists whose members are key/value tuples. When a list is made up of tuples where the first item is hashable, the list is considered to be an object. The following expression returns an "object":
 
@@ -107,7 +123,30 @@ my_obj =
   item2, 2
 ```
 
+Strings
+-------
 
+Special syntax is provides for creating lists of graphemes:
+
+```
+"A string"
+```
+
+Is precisely the same as:
+
+```
+<indent>
+'A'
+' '
+'S'
+'t'
+'r'
+'i'
+'n'
+'g'
+```
+
+String notation should always be preferred to list of grapheme.
 
 Derived Ranges
 --------------
@@ -370,3 +409,4 @@ References
 6. {The textbook}
 7. http://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD660.html
 8. https://softwareengineering.stackexchange.com/questions/148790/is-the-14th-line-of-the-zen-of-python-a-reference-to-dijkstra#148794
+9. https://en.wikipedia.org/wiki/Anonymous_function
