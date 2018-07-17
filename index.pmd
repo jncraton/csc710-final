@@ -16,23 +16,66 @@
 Guiding Principles
 ==================
 
+Exactly One Correct Way
+-----------------------
+
 > I thought that it was a firm principle of language design — out of concern for programming as a human activity — that in all respects equivalent programs should have few possibilities for different representations (possibility for differences ideally not going beyond the arbitrary choice of identifiers and the arbitrary ordering of syntactically unordered components). Otherwise completely different styles of programming arise unnecessarily, thereby hampering maintainability, readability and what have you. This requires from the language designers the courage to make up their minds!
 >
 > - Edsger Dijkstra [7][8]
 
-1. Correct code should look correct. Incorrect code should look incorrect.
-2. There should be exactly one correct way to perform a simple task.
-3. Inline testing and documentation is a core construct.
-4. Where existing mathematical notation exists, it should be used in place of inventing notation or using notation from other programming languages.
-5. Boilerplate and extraneous syntax should be kept to an absolute miniumum.
+To ensure simplicity and readability, my first guiding principle is that the language should provide exactly one obviously correct way to perform a task. This will almost certainly make the language uncomfortable to actually use, but I thought it might be a fun excercise given that no one will actually be using this language anyhow.
 
-The guiding principes lead us to the following high-level design decisions:
+The language is opinionated about *how* it is written. The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
 
-1. White space is significant. This create codes that behaves in the way that it looks like it should.
-2. The language is opinionated about *how* it is written. The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
-3. Built in unit testing at the function level. Compiler warnings available and enabled by default when unit tests are missing. All unit tests are completed at compile time and a failed test is a failed build.
-4. Unicode is required and used in key parts of the language. If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
-5. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
+Correct Code Should Look Correct
+--------------------------------
+
+In order to reduce errors and improve readability, every effort was made to ensure that code that does something looks like it is doing that. Consider this classic example from C-like language. Here we have a for loop:
+
+    int i;
+
+    for (int i = 0; i<=10; i++)
+      i = i*i
+      print(i)
+      
+At first glance, this may look like it will print out the squares of numbers from 1 to 10. It will actually just print 100. The above in functionally the same as this:
+
+    int i;
+
+    for (int i = 0; i<=10; i++)
+      i = i*i
+
+    print(i)
+
+It should be written as:
+
+    int i;
+
+    for (int i = 0; i<=10; i++) {
+      i = i*i
+      print(i)
+    }
+
+These sort of shenanigans would ideally not be part of a sound programming language. In order to eliminate these errors, white space is considered to be a significant and important part of the language syntax.
+
+First-class Testing
+-------------------
+
+In order to ensure correctness and readability of functions, unit testing will be a first-class member of the language. In order to compile without warnings, all functions must specify test for deliniating their intended behaviour.
+
+Compiler warnings are available and enabled by default when unit tests are missing. All unit tests are completed at compile time and a failed test is a failed build.
+
+Prioritize Existing Notation
+----------------------------
+
+Where existing mathematical notation exists, it should be used in place of inventing notation or using notation from other programming languages.
+
+Unicode is required and used in key parts of the language. If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
+
+Details optional
+----------------
+
+Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
 
 Types
 =====
