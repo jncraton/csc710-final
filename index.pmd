@@ -170,6 +170,24 @@ The language uses function scope. Function local variable scope is handled lexic
 Binding
 -------
 
+Binding is done by the following:
+
+```
+my_var = 1
+```
+
+Binding may also be accomplished using match syntax:
+
+```
+_ my_fun _ = (left, right) -> 
+  function body
+```
+
+This can be used to define new infix functions such as operators:
+
+```
+```
+
 ----
 
 The language uses
@@ -460,7 +478,7 @@ Builtins
 ========
 
 Selection (filter) - σexpr(list)
-Summation (reduce) - ∑over,list
+Summation (reduce) - ∑(over,list)
 
 π (pi = 3.14159…)
 ¬ (logical negation)
