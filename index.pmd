@@ -189,19 +189,19 @@ for
 
 For loops are provided very simply as:
 
-    for list i =>
+    for list i →
       function body
 
 Notice that for loop bodies are actually functions, so you can easily call a function for every item in a list. In addition, for is an expression, not a statement. It returns a list of the results to all of the function calls. We can implement map as:
 
-    square = x =>
+    square = x →
       x²
     
     squares = for [1…9] square
 
 Or without binding the function to a name:
 
-    squares = for [1…9] x =>
+    squares = for [1…9] x →
       x²
 
 sum
@@ -211,7 +211,7 @@ sum
 
 Summation is also provided in nearly the same way as `for`:
 
-    sum_of_squares = Σ [1…9] x =>
+    sum_of_squares = Σ [1…9] x →
       x²
 
 Comparison
