@@ -8,10 +8,13 @@ slides.html: $(SRC).md makefile
 $(SRC).odt: $(SRC).md
 	pandoc --toc -o $@ $<
 
-$(SRC).html: $(SRC).pmd
+$(SRC)-md2html.html: $(SRC).pmd
 	pweave --format=md2html $(SRC).pmd
 	# Hack to remove padding from first line of code blocks
 	sed -i -e "s/padding: 2px 4px//g" $(SRC).html
+
+$(SRC).html: $(SRC).md
+	pandoc --standalone --css=style.css --toc -o $@ $<
 
 $(SRC).md: $(SRC).pmd
 	pweave --format=pandoc $(SRC).pmd
