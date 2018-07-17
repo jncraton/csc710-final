@@ -55,96 +55,76 @@ Functions
 
 Functions should be seen as the core construct of the language. There is exactly one way to define a function. Note that the following is an expression, and not a statment. It returns a function:
 
-```
-params →
-  function body
-```
+    params →
+      function body
 
 To assign a function to a variable, one would do the following:
 
-```
-my_fn = params →
-  function body
-```
+    my_fn = params →
+      function body
 
 Functions may be bound to other objects. When they are called in this way, the first parameter of the function is the object that they are bound to.
 
-```
-my_obj.func = self →
-  function body with self mapped to my_obj
-
-my_obj.func()
-```
+    my_obj.func = self →
+      function body with self mapped to my_obj
+    
+    my_obj.func()
 
 Lists
 -----
 
 The following expression returns a list of strings:
 
-```
-<indent>
-"item1"
-"item2"
-```
+    <indent>
+    "item1"
+    "item2"
 
 This can be bound to a variable as:
 
-```
 my_list = 
   "item1"
   "item2"
-```
 
 Tuples
 ------
 
 Tuples are a data type of fixed size composed of other datatypes. The following would be a tuple of length 3:
 
-```
-1,"two",3
-```
+    1,"two",3
 
 Objects
 -------
 
 Note that objects are simply lists whose members are key/value tuples. When a list is made up of tuples where the first item is hashable, the list is considered to be an object. The following expression returns an "object":
 
-```
-<indent>
-item1, 1
-item2, 2
-```
+    <indent>
+    item1, 1
+    item2, 2
 
 This expression may be bound to a varibale as:
 
-```
-my_obj = 
-  item1, 1
-  item2, 2
-```
+    my_obj = 
+      item1, 1
+      item2, 2
 
 Strings
 -------
 
 Special syntax is provides for creating lists of graphemes:
 
-```
-"A string"
-```
+    "A string"
 
 Is precisely the same as:
 
-```
-<indent>
-'A'
-' '
-'S'
-'t'
-'r'
-'i'
-'n'
-'g'
-```
+    <indent>
+    'A'
+    ' '
+    'S'
+    't'
+    'r'
+    'i'
+    'n'
+    'g'
 
 String notation should always be preferred to list of grapheme.
 
@@ -174,21 +154,14 @@ Binding
 
 Binding is done by the following:
 
-```
-my_var = 1
-```
+    my_var = 1
 
 Binding may also be accomplished using match syntax:
 
-```
-_ my_fun _ = (left, right) -> 
-  function body
-```
+    _ my_fun _ = (left, right) -> 
+      function body
 
 This can be used to define new infix functions such as operators:
-
-```
-```
 
 ----
 
@@ -202,14 +175,12 @@ if-then-else
 
 The language provides a fairly standard if-then-else expression as:
 
-```
-result = if True
-  10
-else
-  20
+    result = if True
+      10
+    else
+      20
 
-#result is 10
-```
+    #result is 10
 
 for
 ---
@@ -218,26 +189,20 @@ for
 
 For loops are provided very simply as:
 
-```
-for list i =>
-  function body
-```
+    for list i =>
+      function body
 
 Notice that for loop bodies are actually functions, so you can easily call a function for every item in a list. In addition, for is an expression, not a statement. It returns a list of the results to all of the function calls. We can implement map as:
 
-```
-square = x =>
-  x²
-
-squares = for [1…9] square
-```
+    square = x =>
+      x²
+    
+    squares = for [1…9] square
 
 Or without binding the function to a name:
 
-```
-squares = for [1…] x =>
-  x²
-```
+    squares = for [1…9] x =>
+      x²
 
 sum
 ---
@@ -246,8 +211,8 @@ sum
 
 Summation is also provided in nearly the same way as `for`:
 
-```
-sum_of_squares = 
+    sum_of_squares = Σ [1…9] x =>
+      x²
 
 Comparison
 ----------
@@ -324,37 +289,31 @@ Functions
 
 Function may be infix, prefix, or postfix depending on how they are defined. Here's a prefix definition:
 
-```
-func pow a b:
-  val = 1
-
-  for [0...b]:
-    val *= a
-
-  return val
-```
+    func pow a b:
+      val = 1
+    
+      for [0...b]:
+        val *= a
+    
+      return val
 
 Here's the same definition for an infix `^` operator:
 
-```
-func a ^ b
-  val = 1
-
-  for [0...b]
-    val *= a
-
-  return val
-```
+    func a ^ b
+      val = 1
+    
+      for [0...b]
+        val *= a
+    
+      return val
 
 Functions don't simply have names, but instead have a complete signature. For example, you can define a C++ ternary operator as:
 
-``` 
-func expr ? v_true : v_false
-  if expr
-    v_true
-  else:
-    v_false
-```
+    func expr ? v_true : v_false
+      if expr
+        v_true
+      else:
+        v_false
 
 - 7 - Type Systems
   - The language supports *optional* static typing. That is, it has the ability to be dynamically typed, but static types may be declared and checked at compile time where they are desired. This is known as gradual typing[3].
