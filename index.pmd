@@ -219,17 +219,35 @@ for
 For loops are provided very simply as:
 
 ```
-for i in list
-  do something
+for list i =>
+  function body
 ```
 
-If the variable name is left out, one will be automatically selected to not collide with other names starting from i. For example, the following is valid:
+Notice that for loop bodies are actually functions, so you can easily call a function for every item in a list. In addition, for is an expression, not a statement. It returns a list of the results to all of the function calls. We can implement map as:
 
 ```
-for list_a
-  for list_b
-    print(i, j)
+square = x =>
+  x²
+
+squares = for [1…9] square
 ```
+
+Or without binding the function to a name:
+
+```
+squares = for [1…] x =>
+  x²
+```
+
+sum
+---
+
+----
+
+Summation is also provided in nearly the same way as `for`:
+
+```
+sum_of_squares = 
 
 Comparison
 ----------
