@@ -5,6 +5,9 @@ all: test $(SRC).html slides.html
 slides.html: $(SRC).md makefile
 	pandoc --mathjax -t revealjs -s -o $@ $< -V revealjs-url=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0 -V theme=moon
 
+$(SRC).odt: $(SRC).md
+	pandoc --toc -o $@ $<
+
 $(SRC).html: $(SRC).pmd
 	pweave --format=md2html $(SRC).pmd
 	# Hack to remove padding from first line of code blocks
@@ -31,6 +34,6 @@ test: $(SRC).py
 	python3 -m doctest $(SRC)-test.py
 
 clean:
-	rm -f $(SRC).pdf $(SRC).md $(SRC).py $(SRC)-test.py $(SRC).html slides.html
+	rm -f $(SRC).txt $(SRC).odt $(SRC).docx $(SRC).pdf $(SRC).md $(SRC).py $(SRC)-test.py $(SRC).html slides.html
 	rm -rf figures
 	rm -rf __pycache__
