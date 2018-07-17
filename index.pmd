@@ -198,6 +198,7 @@ Notice that for loop bodies are actually functions, so you can easily call a fun
       x²
     
     squares = for [1…9] square
+    # squares is [1,4,9,16,25,…]
 
 Or without binding the function to a name:
 
