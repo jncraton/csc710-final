@@ -34,6 +34,7 @@ Correct Code Should Look Correct
 --------------------------------
 
 > Programs must be written for people to read, and only incidentally for machines to execute.
+> 
 > - H. Abelson and G. Sussman[11]
 
 In order to reduce errors and improve readability, every effort was made to ensure that code that does something looks like it is doing that. Consider this classic example from C-like language. Here we have a for loop:
@@ -65,12 +66,17 @@ It should be written as:
 These sort of shenanigans would ideally not be part of a sound programming language. In order to eliminate these errors, white space is considered to be a significant and important part of the language syntax.
 
 > A common mistake people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.
-> Douglas Adams[13]
+> 
+> - Douglas Adams[13]
 
 First-class Testing
 -------------------
 
-In order to ensure correctness and readability of functions, unit testing will be a first-class member of the language. In order to compile without warnings, all functions must specify test for deliniating their intended behaviour.
+> Program testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence.
+> 
+> - Edsger Dijkstra[15][16]
+
+In order to enhance correctness and readability of functions, unit testing will be a first-class member of the language. In order to compile without warnings, all functions must specify test for deliniating their intended behaviour.
 
 Compiler warnings are available and enabled by default when unit tests are missing. All unit tests are completed at compile time and a failed test is a failed build.
 
@@ -97,7 +103,7 @@ Literals
 
 ----
 
-The following literals are provides:
+The following literals are provided:
 
 - Grapheme - A single Unicode grapheme
   - e.g. 'a' or '→'
@@ -373,3 +379,6 @@ References
 12. https://en.wikiquote.org/wiki/Programming_languages
 13. Adams, Douglas. The Ultimate Hitchhiker's Guide to the Galaxy: Five Novels in One Outrageous Volume. Del Rey, 2010.
 14. Brooks Jr, Frederick P. "The mythical man-month (anniversary ed.)." (1995).
+15. https://en.wikiquote.org/wiki/Edsger_W._Dijkstra
+16. Dijkstra, Edsger. 1972 Turing Award Lecture[1], Communications of the ACM 15 (10), October 1972: pp. 859–866.
+
