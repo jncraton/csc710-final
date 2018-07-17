@@ -1,4 +1,4 @@
-% ifONLY (draft specification)
+% Programming Language Draft Specification
 % Jon Craton
 
 > We were after the C++ programmers. We managed to drag a lot of them about halfway to Lisp. 
@@ -13,12 +13,12 @@
 >
 > - Don Knuth [6]
 
+Guiding Principles
+==================
+
 > I thought that it was a firm principle of language design --out of concern for programming as a human activity-- that in all respects equivalent programs should have few possibilities for different representations (possibility for differences ideally not going beyond the arbitrary choice of identifiers and the arbitrary ordering of syntactically unordered components). Otherwise completely different styles of programming arise unnecessarily, thereby hampering maintainability, readability and what have you. This requires from the language designers the courage to make up their minds!
 >
 > - Edsger Dijkstra [7][8]
-
-Guiding Principles
-==================
 
 1. Correct code should look correct. Incorrect code should look incorrect.
 2. There should be exactly one correct way to perform a simple task.
