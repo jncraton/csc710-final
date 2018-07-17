@@ -21,17 +21,18 @@ Guiding Principles
 ==================
 
 1. Correct code should look correct. Incorrect code should look incorrect.
-  - White space is significant
-  - Side effects should be loud and obvious
 2. There should be exactly one correct way to perform a simple task.
-  - The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
 3. Inline testing and documentation is a core construct.
-  - Built in unit testing at the function level. Compiler warnings available and enabled by default when unit tests are missing. All unit tests are completed at compile time and a failed test is a failed build.
-4. Where existing mathematical notation exists, it should be used in place of inventing to notation.
-  - If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
+4. Where existing mathematical notation exists, it should be used in place of inventing notation or using notation from other programming languages.
 5. Boilerplate and extraneous syntax should be kept to an absolute miniumum.
-  - Significant whitespace
-  - Many aspects of the syntax are optional and should only be included when required.
+
+The guiding principes lead us to the following high-level design decisions:
+
+1. White space is significant. This create codes that behaves in the way that it looks like it should.
+2. The language is opinionated about *how* it is written. The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
+3. Built in unit testing at the function level. Compiler warnings available and enabled by default when unit tests are missing. All unit tests are completed at compile time and a failed test is a failed build.
+4. Unicode is required and used in key parts of the language. If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
+5. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
 
 Types
 =====
