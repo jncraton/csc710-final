@@ -249,6 +249,8 @@ Binding is done by the following:
 
     my_var ≡ 1
 
+Binding is the only statement in the language. It literally maps one expression to another such that they can now be used interchangably.
+
 Binding may also be accomplished using match syntax:
 
     _ my_fun _ ≡ left right → 
