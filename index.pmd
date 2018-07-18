@@ -292,9 +292,11 @@ $f(x) = \left\{
 
 Here's how match syntax for the above `if` expression looks:
 
-    result ≡ 
-      { 10 if x
-      { 20
+    result ≡
+      {
+        10 if x
+        20
+      }
 
 Loops
 -----
@@ -416,9 +418,11 @@ Fibonacci
 ---------
 
     fib ≡ n →
-      { 0 if n = 0
-      { 1 if n = 1
-      { F(n-1) + F(n-1)
+      {
+        0 if n = 0
+        1 if n = 1
+        F(n-1) + F(n-1)
+      }
   
 OOP
 ===
