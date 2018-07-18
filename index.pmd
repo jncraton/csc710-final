@@ -339,13 +339,15 @@ Operators
 
 Mathematical syntax is used whenever possible for operators. For example:
 
-- and is ∧
-- or is ∨
-- not is ¬
-- less than or equal is ≤
-- greater than or equal is ≥
-- equivalence is =
-- binding is ≡
+Operator| Name
+--------|----:   
+∧|Logical and
+∨|Logical or
+¬|Logical negation
+≤|Less than or equal
+≥|Greater than or equal
+=|Equivalence
+≡|Binding
 
 Features
 ========
