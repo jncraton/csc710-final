@@ -114,12 +114,12 @@ Functions should be seen as the core construct of the language. There is exactly
 
 To assign a function to a variable, one would do the following:
 
-    my_fn = params →
+    my_fn ≡ params →
       function body
 
 Functions may be bound to other objects. When they are called in this way, the first parameter of the function is the object that they are bound to.
 
-    my_obj.func = self →
+    my_obj.func ≡ self →
       function body with self mapped to my_obj
     
     my_obj.func()
@@ -175,7 +175,7 @@ Note that objects are simply lists whose members are key/value tuples. When a li
 
 This expression may be bound to a varibale as:
 
-    my_obj = 
+    my_obj ≡ 
       item1 1
       item2 2
 
@@ -247,16 +247,16 @@ Binding
 
 Binding is done by the following:
 
-    my_var = 1
+    my_var ≡ 1
 
 Binding may also be accomplished using match syntax:
 
-    _ my_fun _ = left right → 
+    _ my_fun _ ≡ left right → 
       function body
 
 This can be used to define new infix functions such as operators:
 
-    _ · _ = a b →
+    _ · _ ≡ a b →
       a × b
 
 ----
@@ -275,7 +275,7 @@ if-then-else
 
 The language provides a fairly standard if-then-else expression as:
 
-    result = if True
+    result ≡ if True
       10
     else
       20
@@ -294,15 +294,15 @@ For loops are provided very simply as:
 
 Notice that for loop bodies are actually functions, so you can easily call a function for every item in a list. In addition, for is an expression, not a statement. It returns a list of the results to all of the function calls. We can implement map as:
 
-    square = x →
+    square ≡ x →
       x²
     
-    squares = for [1…9] square
+    squares ≡ for [1…9] square
     # squares is [1,4,9,16,25,…]
 
 Or without binding the function to a name:
 
-    squares = for [1…9] x →
+    squares ≡ for [1…9] x →
       x²
 
 sum
@@ -312,7 +312,7 @@ sum
 
 Summation is also provided in nearly the same way as `for`:
 
-    sum_of_squares = Σ [1…9] x →
+    sum_of_squares ≡ Σ [1…9] x →
       x²
 
 Comparison
@@ -334,6 +334,8 @@ Mathematical syntax is used whenever possible for operators for example:
 - not is ¬
 - less than or equal is ≤
 - greater than or equal is ≥
+- equivalence is =
+- binding is ≡
 
 Features
 ========
@@ -380,7 +382,7 @@ Newtonian Physics
 
 Calculate new positions for a list of physical object after some time step.
 
-    update_particle = pos, vel, acc, Δt →
+    update_particle ≡ pos, vel, acc, Δt →
       vel = acc × Δt
       pos = vel × Δt
 
@@ -389,12 +391,22 @@ Vector Magnitude
 
 Calculates the magnitude (length) of a vector
 
-    v = 
+    v ≡ 
       1,2,3
 
-    v.mag = v →
+    v.mag ≡ v →
       √Σv,x → 
         x²
+
+Fibonacci
+---------
+
+    fib ≡ n →
+      {
+        0 if n = 0;
+        1 if n = 1;
+        F(n-1) + F(n-1)
+      }
   
 OOP
 ===
