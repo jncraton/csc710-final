@@ -343,10 +343,14 @@ Operator| Name
 --------|----:   
 ∧|Logical and
 ∨|Logical or
+⊕|Logical xor
 ¬|Logical negation
+=|Is equal to
+≠|Is not equal to
 ≤|Less than or equal
 ≥|Greater than or equal
-=|Equivalence
+Σ|Summation
+→|Function arrow
 ≡|Binding
 
 Features
