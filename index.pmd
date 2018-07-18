@@ -376,7 +376,7 @@ While a programmer gets very used to writing and reading these sorts of expressi
 
 We might like to be able to do something like this:
 
-    for i in [2,4,6,...,100]:
+    for [2,4,6,...,100] i →
       \\ Do something with i
 
 It's natural for us to grasp ideas by example, and a computer should be able to construct programs in the same way. These sorts of derived ranges are one practical example of how that can happen.
