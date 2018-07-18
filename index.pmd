@@ -255,10 +255,13 @@ Binding is done by the following:
 
 Binding may also be accomplished using match syntax:
 
-    _ my_fun _ = (left, right) -> 
+    _ my_fun _ = left right → 
       function body
 
 This can be used to define new infix functions such as operators:
+
+    _ · _ = a b →
+      a × b
 
 ----
 
