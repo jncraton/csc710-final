@@ -135,24 +135,38 @@ Functions may be bound to other objects. When they are called in this way, the f
 Lists
 -----
 
+Lists are ordered groups of items of the same time. They do not have a fixed length.
+
 The following expression returns a list of strings:
 
     <indent>
     "item1"
     "item2"
+    …
 
 This can be bound to a variable as:
 
 my_list = 
   "item1"
   "item2"
+  …
 
 Tuples
 ------
 
 Tuples are a data type of fixed size composed of other datatypes. The following would be a tuple of length 3:
 
-    1,"two",3
+    <indent>
+    1 "two" 3
+
+Tuples may optionally be defined over multiple lines as:
+
+    <indent>
+    1
+    "two"
+    3
+
+Tuple construction is differentiated from list construction by the lack of ellipses.
 
 Objects
 -------
@@ -160,14 +174,14 @@ Objects
 Note that objects are simply lists whose members are key/value tuples. When a list is made up of tuples where the first item is hashable, the list is considered to be an object. The following expression returns an "object":
 
     <indent>
-    item1, 1
-    item2, 2
+    item1 1
+    item2 2
 
 This expression may be bound to a varibale as:
 
     my_obj = 
-      item1, 1
-      item2, 2
+      item1 1
+      item2 2
 
 Strings
 -------
@@ -189,6 +203,27 @@ Is precisely the same as:
     'g'
 
 String notation should always be preferred to list of grapheme.
+
+Vectors
+-------
+
+A vector can be thought of either as a fixed lenght list or a tuple whose elements all have the same type. It is constructed exactly as a tuple and identified using duck typing. Here's an example vector:
+
+    <indent>
+    1
+    2
+    3
+
+Matrices
+--------
+
+An N×M matrix is simply an N-tuple of M-tuples. Here is an example identity matrix:
+
+    <indent>
+    1 0 0 0
+    0 1 0 0
+    0 0 1 0
+    0 0 0 1
 
 Names, Scope, and Binding
 =========================
@@ -345,6 +380,18 @@ Calculate new positions for a list of physical object after some time step.
     update_particle = pos, vel, acc, Δt →
       vel = acc × Δt
       pos = vel × Δt
+
+Vector Magnitude
+----------------
+
+Calculates the magnitude (length) of a vector
+
+    v = 
+      1,2,3
+
+    v.mag = v →
+      √Σv,x → 
+        x²
   
 OOP
 ===
