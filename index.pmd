@@ -272,20 +272,34 @@ Control Flow
 > 
 > - Guy Steele, co-author of the Java spec [5] 
 
-if-then-else
-------------
+Matching
+--------
 
 The language provides a fairly standard if-then-else expression as:
 
-    result ≡ if True
+    result ≡ if x
       10
     else
       20
 
-    #result is 10
+Because brackets are freed up from their traditional ALGOL usage for blocks, they can be repurposed to their more standard mathematical notation i.e.:
 
-for
----
+$(x) = \left\{
+   \begin{array}{rl}
+     a, & \text{if } p(x) \\
+     b, & \text{if } q(x)
+   \end{array}\right$
+
+Here's how match syntax for the above if expression looks:
+
+    result ≡ 
+      { 
+        10 if x
+        20
+      }
+
+Loops
+-----
 
 ---
 
@@ -307,8 +321,8 @@ Or without binding the function to a name:
     squares ≡ for [1…9] x →
       x²
 
-sum
----
+Summation
+---------
 
 ----
 
