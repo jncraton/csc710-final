@@ -186,7 +186,7 @@ This expression may be bound to a varibale as:
 Strings
 -------
 
-Special syntax is provides for creating lists of graphemes:
+Special syntax is provided for creating lists of graphemes:
 
     "A string"
 
