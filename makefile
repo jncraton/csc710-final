@@ -14,7 +14,7 @@ $(SRC)-md2html.html: $(SRC).pmd
 	sed -i -e "s/padding: 2px 4px//g" $(SRC).html
 
 $(SRC).html: $(SRC).md
-	pandoc --standalone --css=style.css --toc -o $@ $<
+	pandoc --mathjax --standalone --css=style.css --toc -o $@ $<
 
 $(SRC).md: $(SRC).pmd
 	pweave --format=pandoc $(SRC).pmd

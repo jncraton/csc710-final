@@ -284,19 +284,17 @@ The language provides a fairly standard if-then-else expression as:
 
 Because brackets are freed up from their traditional ALGOL usage for blocks, they can be repurposed to their more standard mathematical notation i.e.:
 
-$(x) = \left\{
+$f(x) = \left\{
    \begin{array}{rl}
      a, & \text{if } p(x) \\
      b, & \text{if } q(x)
-   \end{array}\right$
+   \end{array}\right.$
 
-Here's how match syntax for the above if expression looks:
+Here's how match syntax for the above `if` expression looks:
 
     result ≡ 
-      { 
-        10 if x
-        20
-      }
+      { 10 if x
+      { 20
 
 Loops
 -----
@@ -418,11 +416,9 @@ Fibonacci
 ---------
 
     fib ≡ n →
-      {
-        0 if n = 0;
-        1 if n = 1;
-        F(n-1) + F(n-1)
-      }
+      { 0 if n = 0
+      { 1 if n = 1
+      { F(n-1) + F(n-1)
   
 OOP
 ===
