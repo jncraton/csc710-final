@@ -334,6 +334,18 @@ Consider the basic integer. It's primary value is some number, and it's secondar
 
 Other types have a primary type such as `list` and a secondary type containing it's items.
 
+Examples
+========
+
+Newtonian Physics
+-----------------
+
+Calculate new positions for a list of physical object after some time step.
+
+    update_particle = pos, vel, acc, Δt →
+      vel = acc × Δt
+      pos = vel × Δt
+  
 OOP
 ===
 
