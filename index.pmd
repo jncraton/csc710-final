@@ -423,7 +423,17 @@ Fibonacci
         1 if n = 1
         F(n-1) + F(n-1)
       }
-  
+
+That's one way to write it using match syntax, but the formatter would actually make it look somewhat better:
+
+    fib ≡ n →
+      {
+        F₀ = 0
+        F₁ = 1
+        F(n-1) + F(n-2)
+      }
+
+ 
 OOP
 ===
 
