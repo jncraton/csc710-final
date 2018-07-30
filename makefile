@@ -22,8 +22,8 @@ $(SRC).md: $(SRC).pmd
 $(SRC).py: $(SRC).pmd
 	ptangle $(SRC).pmd
 
-$(SRC).pdf: $(SRC).html
-	chromium-browser --headless --print-to-pdf=$(SRC).pdf $(SRC).html
+$(SRC).pdf: $(SRC).md
+	pandoc --toc --variable mainfont="Noto Sans CJK JP" --variable monofont="Noto Sans Mono CJK JP"  --mathjax --pdf-engine=xelatex -s -o $@ $< 
 	
 run: $(SRC).py
 	python3 $(SRC).py
