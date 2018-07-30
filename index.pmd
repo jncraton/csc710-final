@@ -55,7 +55,7 @@ It should be written as:
       print(i)
     }
 
-These sort of shenanigans would ideally not be part of a sound programming language. In order to eliminate these errors, white space is considered to be a significant and important part of the language syntax.
+These sorts of shenanigans would ideally not be part of a sound programming language. In order to eliminate these errors, white space is considered to be a significant and important part of the language syntax.
 
 > A common mistake people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.
 > 
