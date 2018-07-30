@@ -61,24 +61,13 @@ These sort of shenanigans would ideally not be part of a sound programming langu
 > 
 > - Douglas Adams[13]
 
-First-class Testing
--------------------
-
-> Program testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence.
-> 
-> - Edsger Dijkstra[15][16]
-
-In order to enhance correctness and readability of functions, unit testing will be a first-class member of the language. In order to compile without warnings, all functions must specify test for deliniating their intended behaviour.
-
-Compiler warnings are available and enabled by default when unit tests are missing. All unit tests are completed at compile time and a failed test is a failed build.
-
 Prioritize Existing Notation
 ----------------------------
 
 > That language is an instrument of human reason, and not merely a medium for the expression of thought, is a truth generally admitted.
 > - George Boole[12]
 
-Where existing mathematical notation exists, it should be used in place of inventing notation or using notation from other programming languages.
+Where existing mathematical notation exists, it should be used in place of inventing notation or using notation from other programming languages. In this way, the language is somewhat like APL[18].
 
 Unicode is required and used in key parts of the language. If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
 
@@ -89,6 +78,10 @@ Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many a
 
 Types
 =====
+
+----
+
+This language is strongly and statically typed. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1].
 
 Literals
 --------
@@ -162,12 +155,12 @@ Tuples may optionally be defined over multiple lines as:
     "two"
     3
 
-Tuple construction is differentiated from list construction by the lack of ellipses.
+Tuple construction is differentiated from list construction by the lack of ellipses and the fact that tuple members may have different types.
 
 Objects
 -------
 
-Note that objects are simply lists whose members are key/value tuples. When a list is made up of tuples where the first item is hashable, the list is considered to be an object. The following expression returns an "object":
+Objects are simply lists whose members are key/value tuples. When a list is made up of tuples where the first item is hashable, the list is considered to be an object. The following expression returns an "object":
 
     <indent>
     item1 1
@@ -178,6 +171,23 @@ This expression may be bound to a varibale as:
     my_obj ≡ 
       item1 1
       item2 2
+
+Items may be accessed by element as with a list:
+
+    my_obj[0] # ("item1", 2)
+
+They can also be access by key using common dot notation:
+
+    my_obj.item1 # 2
+
+Note that the key following the dot is a string, not an identifier, so it may need to be quoted as seen here:
+
+    my_obj ≡ 
+      item1 1
+      item-2 2
+  
+    my_obj.item-2 # Fails
+    my_obj."item-2" # Works
 
 Strings
 -------
@@ -198,12 +208,12 @@ Is precisely the same as:
     'n'
     'g'
 
-String notation should always be preferred to list of grapheme.
+String notation should always be preferred to list of grapheme. In many cases, quotes can be left off and strings will still be discovered correctly.
 
 Vectors
 -------
 
-A vector can be thought of either as a fixed lenght list or a tuple whose elements all have the same type. It is constructed exactly as a tuple and identified using duck typing. Here's an example vector:
+A vector can be thought of either as a fixed length list or a tuple whose elements all have the same type. It is constructed exactly as a tuple and identified using duck typing. Here's an example vector:
 
     <indent>
     1
@@ -220,6 +230,8 @@ An N×M matrix is simply an N-tuple of M-tuples. Here is an example identity mat
     0 1 0 0
     0 0 1 0
     0 0 0 1
+
+Notice that Objects, Vectors, and Matrices are types derived from tuples and lists, so they inherit the same operations. For example, the first row of the above matrix is just the first item in the tuple.
 
 Names, Scope, and Binding
 =========================
@@ -275,14 +287,14 @@ Control Flow
 Matching
 --------
 
-The language provides a fairly standard if-then-else expression as:
+The language could provide a fairly standard if-then-else expression as:
 
     result ≡ if x
       10
     else
       20
 
-Because brackets are freed up from their traditional ALGOL usage for blocks, they can be repurposed to their more standard mathematical notation i.e.:
+However, because brackets are freed up from their traditional ALGOL usage for blocks, they can be repurposed to their more standard mathematical matching notation i.e.:
 
 $f(x) = \left\{
    \begin{array}{rl}
@@ -298,19 +310,36 @@ Here's how match syntax for the above `if` expression looks:
         20
       }
 
+This matching sytnax replaces the need for traditional if-then structures. This is similar to how piecewise functions may be defined in Haskell, except that the function declaration is implicit, immediately called, and does not create a new scope.
+
 Loops
 -----
 
 ---
 
-For loops are provided very simply as:
+"Loops" are provided as:
 
-    for list i →
+    list ↦ i →
       function body
 
-Notice that for loop bodies are actually functions, so you can easily call a function for every item in a list. In addition, for is an expression, not a statement. It returns a list of the results to all of the function calls. We can implement map as:
+This differs from a traditional for loop in that it is called `map` and in that the language **makes no guarantee about execution order** of the supplied function. If a runtime finds that it is beneficial to paralellize the calls to the function, it is free to do so. This is similar to using `map` in Python's multiprocessing package:
 
-    squares ≡ for [1…9] x →
+```python,evaluate=False
+from multiprocessing import Pool
+
+def f(x):
+    return x*x
+
+if __name__ == '__main__':
+    p = Pool(5)
+    print(p.map(f, [1, 2, 3]))
+```
+
+The map expression returns a list of all the return values from the function calls. This list will be in the same order as the original list despite not necessarily being executed in order.
+
+Here's one example of using these resutls:
+
+    squares ≡ [1…9] ↦ x →
       x²
 
     # squares is [1,4,9,16,25,…]
@@ -320,10 +349,24 @@ Summation
 
 ----
 
-Summation is also provided in nearly the same way as `for`:
+Summation (reduce) is also provided:
 
-    sum_of_squares ≡ Σ [1…9] x →
+    sum_of_squares ≡ Σ [1…9] ↦ x →
       x²
+
+    # sum_of_squares is 285
+
+Every
+-----
+
+----
+
+Truthiness of some function over a list can also be found as:
+
+    all_under_10 ≡ ∀ [1…9] ↦ x →
+      x < 10
+
+    # all_under_10 is True
 
 Comparison
 ----------
@@ -332,29 +375,41 @@ Comparison
 
 Comparison - Comparison is always done by value.
 
-Operators
----------
+Mathematical syntax is used whenever possible for comparison operators. For example:
 
-----
-
-Mathematical syntax is used whenever possible for operators. For example:
-
-Operator| Name
+Comparison Operator| Name
 --------|----:   
+=|Is equal to
+≠|Is not equal to
+<|Less than
+>|Greater than
+≤|Less than or equal
+≥|Greater than or equal
 ∧|Logical and
 ∨|Logical or
 ⊕|Logical xor
 ¬|Logical negation
-=|Is equal to
-≠|Is not equal to
-≤|Less than or equal
-≥|Greater than or equal
-Σ|Summation
-→|Function arrow
-≡|Binding
 
 Features
 ========
+
+Operations
+----------
+
+Operator| Name
+--------|----:
++|Add
+-|Subtract
+×|Multiply
+÷|Divide
+²|Square
+³|Cube
+√|Square root
+→|Function arrow
+Σ|Summation (reduce)
+↦|Map
+≡|Binding
+
 
 Derived Ranges
 --------------
@@ -376,19 +431,9 @@ While a programmer gets very used to writing and reading these sorts of expressi
 
 We might like to be able to do something like this:
 
-    for [2,4,6,...,100] i →
-      \\ Do something with i
+    [2,4,…,100] \\ 2,4,6,8,10,…,100
 
 It's natural for us to grasp ideas by example, and a computer should be able to construct programs in the same way. These sorts of derived ranges are one practical example of how that can happen.
-
-- 7 - Type Systems
-  - The language supports *optional* static typing. That is, it has the ability to be dynamically typed, but static types may be declared and checked at compile time where they are desired. This is known as gradual typing[3].
-- 8 - Composite Types
-  - Every type is composed of a primary and a number of secondary types. Secondary types may be accessed in order using number and may also be access by name.
-
-Consider the basic integer. It's primary value is some number, and it's secondary value is nil.
-
-Other types have a primary type such as `list` and a secondary type containing it's items.
 
 Examples
 ========
@@ -398,9 +443,14 @@ Newtonian Physics
 
 Calculate new positions for a list of physical object after some time step.
 
-    update_particle ≡ pos, vel, acc, Δt →
-      vel = acc × Δt
-      pos = vel × Δt
+    Δt = 1    
+
+    next_state ≡ p →
+        pos p.pos + p.vel × Δt
+        vel p.vel + p.acc × Δt
+        acc p.acc
+
+    particles ≡ particles ↦ next_state
 
 Vector Magnitude
 ----------------
@@ -433,35 +483,6 @@ That's one way to write it using match syntax, but the formatter would actually 
         F(n-1) + F(n-2)
       }
 
- 
-OOP
-===
-
-This language does not seek to provide syntactic sugar for object oriented programming. Object oriented programs can be crafted by explictly passing data structures to functions meant to operate on these structures.
-
-Types
-=====
-This language is strongly and statically typed. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1].
-
-Builtins
-========
-
-Selection (filter) - σexpr(list)
-Summation (reduce) - ∑(over,list)
-
-π (pi = 3.14159…)
-¬ (logical negation)
-
-Mutability
-==========
-
-All variables are immutable once declared.
-
-Whitespace
-==========
-
-There are two valid whitespace characters. These are space, as in 0x20, and line breaks, as in 0x12. Using tabs (0x11) or carriage returns (0x15) as whitespace characters is illegal.
-
 References
 ==========
 
@@ -481,4 +502,5 @@ References
 14. Brooks Jr, Frederick P. "The mythical man-month (anniversary ed.)." (1995).
 15. https://en.wikiquote.org/wiki/Edsger_W._Dijkstra
 16. Dijkstra, Edsger. 1972 Turing Award Lecture[1], Communications of the ACM 15 (10), October 1972: pp. 859–866.
-
+17. https://en.wikibooks.org/wiki/Haskell/Pattern_matching
+18. https://en.wikipedia.org/wiki/APL
