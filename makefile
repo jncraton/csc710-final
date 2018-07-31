@@ -2,6 +2,8 @@ SRC = index
 
 all: test $(SRC).html slides.html
 
+.PHONY: show showpdf clean
+
 slides.html: $(SRC).md makefile
 	pandoc --mathjax -t revealjs -s -o $@ $< -V revealjs-url=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0 -V theme=moon
 
@@ -24,6 +26,12 @@ $(SRC).py: $(SRC).pmd
 
 $(SRC).pdf: $(SRC).md
 	pandoc --toc --variable mainfont="Noto Sans CJK JP" --variable monofont="Noto Sans Mono CJK JP"  --mathjax --pdf-engine=xelatex -s -o $@ $< 
+
+show: $(SRC).html
+	firefox $(SRC).html
+
+showpdf: $(SRC).pdf
+	firefox $(SRC).pdf
 	
 run: $(SRC).py
 	python3 $(SRC).py
