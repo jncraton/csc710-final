@@ -410,7 +410,6 @@ Operator| Name
 ↦|Map
 ≡|Binding
 
-
 Derived Ranges
 --------------
 
@@ -483,6 +482,17 @@ That's one way to write it using match syntax, but the formatter would actually 
         F(n-1) + F(n-2)
       }
 
+Summary
+=======
+
+I saw this project as an opportunity to combine distinctive attributes from many different languages. The language that ultimately emerged is the result of quite a bit of iterative development.
+
+The final language syntax ends up looking like some twisted hybrid of APL and Python. I've tried to ignore the practical challenges of implementing this language, but I think it would be incredibly difficult to parse and for that reason also very difficult to actually write code in.
+
+I wanted to explore the concept of trusting the compiler to be "smart". This seems like a good idea on the surface, but it ultimately creates a language with all of the anbiguity of English. At the gut level, I have appreciated some of the "intelligence" found in other language that allows a programmer to leave out verbose syntax. One example of this would be optional semicolons in Javascript. It's nice to not need semicolons to terminate statements, but ultimately it creates some strange edge cases where statements are terminated in places the programmer did not expect. This is one of the reasons that Crockford and others recommend always using semicolons in JS even though they are not needed.[19]
+
+This language provided a great platform for me to explore language design, but it is not anything that I would want to use to write serious software. The ambiguity of the language and use of Unicode characters throughout would make it very challenging to write correct code in. Ultimately, this was a fantastic learning experience, but I think I still prefer using C/C++ or Rust.
+
 References
 ==========
 
@@ -504,3 +514,4 @@ References
 16. Dijkstra, Edsger. 1972 Turing Award Lecture[1], Communications of the ACM 15 (10), October 1972: pp. 859–866.
 17. https://en.wikibooks.org/wiki/Haskell/Pattern_matching
 18. https://en.wikipedia.org/wiki/APL
+19. Crockford, Douglas. JavaScript: The Good Parts: The Good Parts. " O'Reilly Media, Inc.", 2008.
