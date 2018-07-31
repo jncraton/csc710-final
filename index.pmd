@@ -74,7 +74,7 @@ Where existing mathematical notation exists, it should be used in place of inven
 
 Unicode is required and used in key parts of the language. If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
 
-Details optional
+Details Optional
 ----------------
 
 Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
