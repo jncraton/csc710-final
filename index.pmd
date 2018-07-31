@@ -6,7 +6,7 @@
 
 > Programming should be regarded as the art of telling another human being what one wants the computer to do.
 >
-> - Don Knuth [6]
+> — Don Knuth [6]
 
 Guiding Principles
 ==================
@@ -19,7 +19,7 @@ Exactly One Correct Way
 
 > I thought that it was a firm principle of language design — out of concern for programming as a human activity — that in all respects equivalent programs should have few possibilities for different representations (possibility for differences ideally not going beyond the arbitrary choice of identifiers and the arbitrary ordering of syntactically unordered components). Otherwise completely different styles of programming arise unnecessarily, thereby hampering maintainability, readability and what have you. This requires from the language designers the courage to make up their minds!
 >
-> - Edsger Dijkstra [7][8]
+> — Edsger Dijkstra [7][8]
 
 To ensure simplicity and readability, my first guiding principle is that the language should provide exactly one obviously correct way to perform a task. This will almost certainly make the language uncomfortable to actually use, but I thought it might be a fun excercise given that no one will actually be using this language anyhow.
 
@@ -30,7 +30,7 @@ Correct Code Should Look Correct
 
 > Programs must be written for people to read, and only incidentally for machines to execute.
 > 
-> - H. Abelson and G. Sussman[11]
+> — H. Abelson and G. Sussman[11]
 
 In order to reduce errors and improve readability, every effort was made to ensure that code that does something looks like it is doing that. Consider this classic example from C-like language. Here we have a for loop:
 
@@ -62,14 +62,14 @@ These sorts of shenanigans would ideally not be part of a sound programming lang
 
 > A common mistake people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.
 > 
-> - Douglas Adams[13]
+> — Douglas Adams[13]
 
 Prioritize Existing Notation
 ----------------------------
 
 > That language is an instrument of human reason, and not merely a medium for the expression of thought, is a truth generally admitted.
 >
-> - George Boole[12]
+> — George Boole[12]
 
 Where existing mathematical notation exists, it should be used in place of inventing notation or using notation from other programming languages. In this way, the language is somewhat like APL[18].
 
@@ -122,7 +122,7 @@ Lists
 
 >  Any sufficiently complicated C or Fortran program contains an ad-hoc, informally-specified bug-ridden slow implementation of half of Common Lisp.
 >
-> - Philip Greenspun [4]
+> — Philip Greenspun [4]
 
 Lists are ordered groups of items of the same time. They do not have a fixed length.
 
@@ -280,7 +280,7 @@ Control Flow
 
 > We were after the C++ programmers. We managed to drag a lot of them about halfway to Lisp. 
 > 
-> - Guy Steele, co-author of the Java spec [5] 
+> — Guy Steele, co-author of the Java spec [5] 
 
 Matching
 --------
