@@ -436,7 +436,7 @@ Newtonian Physics
 
 Calculate new positions for a list of physical objects after some time step.
 
-    Δt = 1    
+    Δt ≡ 1    
 
     next_state ≡ p →
         pos p.pos + p.vel × Δt
