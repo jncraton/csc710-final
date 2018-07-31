@@ -84,14 +84,10 @@ Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many a
 Types
 =====
 
-----
-
 This language is strongly and statically typed. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1].
 
 Literals
 --------
-
-----
 
 The following literals are provided:
 
@@ -102,8 +98,6 @@ The following literals are provided:
 
 Functions
 ---------
-
-----
 
 Functions should be seen as the core construct of the language. There is exactly one way to define a function. Note that the following is an expression, and not a statment. It returns a function:
 
@@ -246,16 +240,12 @@ Names, Scope, and Binding
 Names
 -----
 
-----
-
 Names may include any non-whitespace characters and must not start with a number. They may not include operators in their names. This is a standard choice present in most languages.
 
 There are no variable declarations. Variables are inferred to be local if they are assigned in a function. This prevents boilerplate declarations and generally requires fewer lines of code to perform a task. This is the same method used in Python.
 
 Scope
 -----
-
-----
 
 The language uses function scope. Function local variable scope is handled lexically, so nested functions have access to their parent's scope, but other called functions do not.[10]
 
@@ -279,8 +269,6 @@ This can be used to define new infix functions such as operators:
 
     _ · _ ≡ a b →
       a × b
-
-----
 
 The language uses deep binding. I find this to be easier to read and reason about.
 
@@ -356,8 +344,6 @@ Here's one example of using these resutls:
 Summation
 ---------
 
-----
-
 Summation (reduce) is also provided:
 
     sum_of_squares ≡ Σ [1…9] ↦ x →
@@ -368,8 +354,6 @@ Summation (reduce) is also provided:
 Every
 -----
 
-----
-
 Truthiness of some function over a list can also be found as:
 
     all_under_10 ≡ ∀ [1…9] ↦ x →
@@ -379,8 +363,6 @@ Truthiness of some function over a list can also be found as:
 
 Comparison
 ----------
-
-----
 
 Comparison - Comparison is always done by value.
 
@@ -423,8 +405,6 @@ Operator| Name
 
 Derived Ranges
 --------------
-
-----
 
 Consider iterating over the even integers between 1 and 100 in JavaScript:
 
