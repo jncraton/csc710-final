@@ -1,6 +1,8 @@
 % Programming Language Draft Specification
 % Jon Craton
 
+\newpage
+
 > Programming should be regarded as the art of telling another human being what one wants the computer to do.
 >
 > - Don Knuth [6]
@@ -75,6 +77,8 @@ Details optional
 ----------------
 
 Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
+
+\newpage
 
 Types
 =====
@@ -233,6 +237,8 @@ An N×M matrix is simply an N-tuple of M-tuples. Here is an example identity mat
 
 Notice that Objects, Vectors, and Matrices are types derived from tuples and lists, so they inherit the same operations. For example, the first row of the above matrix is just the first item in the tuple.
 
+\newpage
+
 Names, Scope, and Binding
 =========================
 
@@ -276,6 +282,8 @@ This can be used to define new infix functions such as operators:
 ----
 
 The language uses deep binding. I find this to be easier to read and reason about.
+
+\newpage
 
 Control Flow
 ============
@@ -390,6 +398,8 @@ Comparison Operator| Name
 ⊕|Logical xor
 ¬|Logical negation
 
+\newpage
+
 Features
 ========
 
@@ -433,6 +443,8 @@ We might like to be able to do something like this:
     [2,4,…,100] \\ 2,4,6,8,10,…,100
 
 It's natural for us to grasp ideas by example, and a computer should be able to construct programs in the same way. These sorts of derived ranges are one practical example of how that can happen.
+
+\newpage
 
 Examples
 ========
@@ -482,6 +494,8 @@ That's one way to write it using match syntax, but the formatter would actually 
         F(n-1) + F(n-2)
       }
 
+\newpage
+
 Summary
 =======
 
@@ -492,6 +506,8 @@ The final language syntax ends up looking like some twisted hybrid of APL and Py
 I wanted to explore the concept of trusting the compiler to be "smart". This seems like a good idea on the surface, but it ultimately creates a language with all of the anbiguity of English. At the gut level, I have appreciated some of the "intelligence" found in other language that allows a programmer to leave out verbose syntax. One example of this would be optional semicolons in Javascript. It's nice to not need semicolons to terminate statements, but ultimately it creates some strange edge cases where statements are terminated in places the programmer did not expect. This is one of the reasons that Crockford and others recommend always using semicolons in JS even though they are not needed.[19]
 
 This language provided a great platform for me to explore language design, but it is not anything that I would want to use to write serious software. The ambiguity of the language and use of Unicode characters throughout would make it very challenging to write correct code in. Ultimately, this was a fantastic learning experience, but I think I still prefer using C/C++ or Rust.
+
+\newpage
 
 References
 ==========
