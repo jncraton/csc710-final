@@ -433,7 +433,7 @@ Examples
 Newtonian Physics
 -----------------
 
-Calculate new positions for a list of physical object after some time step.
+Calculate new positions for a list of physical objects after some time step.
 
     Δt = 1    
 
