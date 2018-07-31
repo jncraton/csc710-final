@@ -25,7 +25,7 @@ $(SRC).py: $(SRC).pmd
 	ptangle $(SRC).pmd
 
 $(SRC).pdf: $(SRC).md
-	pandoc --toc --variable mainfont="Noto Sans CJK JP" --variable monofont="Noto Sans Mono CJK JP"  --mathjax --pdf-engine=xelatex -s -o $@ $< 
+	pandoc --toc --variable documentclass=extarticle --variable fontsize=12pt --variable mainfont="FreeSans" --variable monofont="FreeMono"  --mathjax --pdf-engine=xelatex -s -o $@ $< 
 
 show: $(SRC).html
 	firefox $(SRC).html
