@@ -92,10 +92,11 @@ Literals
 
 The following literals are provided:
 
-- Grapheme - A single Unicode grapheme
+- Grapheme - A single Unicode grapheme.
   - e.g. 'a' or '→'
 - Number - A scalable number supporting unlimited integer precision and precision no worse than an IEEE 64-bit float for floating point operations.
   - e.g. 1.0 or 1 or 1e300
+- Boolean - A boolean value. May be either True or False.
 
 Functions
 ---------
