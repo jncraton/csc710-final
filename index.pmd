@@ -382,6 +382,8 @@ Comparison Operator| Name
 ∨|Logical or
 ⊕|Logical xor
 ¬|Logical negation
+∈|Is member of
+∉|Is not member of
 
 \newpage
 
@@ -426,6 +428,27 @@ We might like to be able to do something like this:
     [2,4,…,100] \\ 2,4,6,8,10,…,100
 
 It's natural for us to grasp ideas by example, and a computer should be able to construct programs in the same way. These sorts of derived ranges are one practical example of how that can happen.
+
+Argument Validation
+-------------------
+
+The language does not provide enums, but it does provide a mechanism to get some of the value that enums provide. While all types are automatically inferred, it is possible to declare a function whose argument values must be members of a certain set in addition to begin the correct type. The standard membership operator `∈` is used for this.
+
+Here's an example of a function that may accept one of exactly four strings:
+
+    directions ≡
+      North
+      South
+      East
+      West
+    
+    turn_right ≡ dir ∈ directions →
+      {
+        North if dir = West
+        South if dir = East
+        East if dir = North
+        West if dir = South
+      }
 
 \newpage
 
