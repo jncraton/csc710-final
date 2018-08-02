@@ -136,10 +136,24 @@ The following expression returns a list of strings:
 
 This can be bound to a variable as:
 
-my_list = 
+my_list ≡ 
   "item1"
   "item2"
   …
+
+Lists can be used as sets where duplicate members are ignored by using set-based union and intersection operations:
+
+    fruits1 =
+      apple
+      pear
+    
+    fruits2 = 
+      apple
+      peach
+    
+    fruits = fruits1 ∪ fruits2
+    
+    # fruits is now {apple,pear,peach}
 
 Tuples
 ------
@@ -402,6 +416,8 @@ Operator| Name
 ²|Square
 ³|Cube
 √|Square root
+∪|Union
+∩|Intersection
 →|Function arrow
 Σ|Summation (reduce)
 ↦|Map
