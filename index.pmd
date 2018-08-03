@@ -263,9 +263,15 @@ There are no variable declarations. Variables are inferred to be local if they a
 Scope
 -----
 
-The language uses function scope. Function local variable scope is handled lexically, so nested functions have access to their parent's scope, but other called functions do not.[10]
+The language uses static scoping. There are no C-like blocks, so functions are used to create a new scope. Function local variable scope is handled lexically, so nested functions have access to their parent's scope, but other called functions do not.[10]
 
 This choice allows functions to be the core unit of the language. There are no blocks outside of functions. Functions are the unit of scope.
+
+Static scoping aligns with my goal to make code look the same as it functions as much as possible. The rationale for this decision is very similar for the rationale found in the Scheme documentation[20] relating scoping back to the actual text of the program:
+
+> With static scoping, you can tell what binding a variable reference refers to just from looking at the text of the program; the referenced binding cannot depend on how the program is used. That is, the nesting of environments (their parent-child relationship) corresponds to the nesting of binding expressions in program text. (Because of this connection to the text of the program, static scoping is also called lexical scoping.) For each place where a variable is bound in a program there is a corresponding region of the program text within which the binding is effective.
+
+Static typing also allows for compile time validation of static types.
 
 Binding
 -------
@@ -286,7 +292,7 @@ This can be used to define new infix functions such as operators:
     _ · _ ≡ a b →
       a × b
 
-The language uses deep binding. I find this to be easier to read and reason about.
+The language uses static binding. As discussed in the scoping section, this helps the code to be more readable and makes it easier to write code that executes in the way that it looks like it will. This also makes the language more approachable as this is a common approach in other popular languages (C, Java, Scheme, etc).[21]
 
 \newpage
 
@@ -553,3 +559,5 @@ References
 17. https://en.wikibooks.org/wiki/Haskell/Pattern_matching
 18. https://en.wikipedia.org/wiki/APL
 19. Crockford, Douglas. JavaScript: The Good Parts: The Good Parts. " O'Reilly Media, Inc.", 2008.
+20. https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/Static-Scoping.html
+21. https://www.cs.oberlin.edu/~bob/cs275.spring14/Examples%20and%20Notes/February/Februrary%2028/Lexical%20and%20Dynamic%20Binding.pdf
