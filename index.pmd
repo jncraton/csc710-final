@@ -559,8 +559,7 @@ Calculates the magnitude (length) of a vector
       1,2,3
 
     v.mag ≡ v →
-      √Σv,x → 
-        x²
+      √Σx²
 
 Fibonacci
 ---------
