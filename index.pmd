@@ -497,7 +497,7 @@ It's natural for us to grasp ideas by example, and a computer should be able to 
 Argument Validation
 -------------------
 
-The language does not provide enums, but it does provide a mechanism to get some of the value that enums provide. While all types are automatically inferred, it is possible to declare a function whose argument values must be members of a certain set in addition to begin the correct type. The standard membership operator `∈` is used for this. In essense, this is an extension of the type system. When possible, arguments will be validated at compile time, but they may also require runtime handling in the case of dynamic data being used as part of the validation.
+The language does not provide enums, but it does provide a mechanism to get some of the value that enums provide. While all types are automatically inferred, it is possible to declare a function whose argument values must be members of a certain set in addition to being the correct type. The standard membership operator `∈` is used for this. In essense, this is an extension of the type system. When possible, arguments will be validated at compile time, but they may also require runtime handling in the case of dynamic data being used as part of the validation.
 
 Here's an example of a function that may accept one of exactly four strings:
 
@@ -514,7 +514,6 @@ Here's an example of a function that may accept one of exactly four strings:
         East if dir = North
         West if dir = South
       }
-
 
 Default Lists
 -------------
