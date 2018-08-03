@@ -79,6 +79,52 @@ Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many a
 
 \newpage
 
+Names, Scope, and Binding
+=========================
+
+Names
+-----
+
+Names may include any non-whitespace characters and must not start with a number. They may not include operators in their names. This is a standard choice present in most languages.
+
+There are no variable declarations. Variables are inferred to be local if they are assigned in a function. This prevents boilerplate declarations and generally requires fewer lines of code to perform a task. This is the same method used in Python.
+
+Scope
+-----
+
+The language uses static scoping. There are no C-like blocks, so functions are used to create a new scope. Function local variable scope is handled lexically, so nested functions have access to their parent's scope, but other called functions do not.[10]
+
+This choice allows functions to be the core unit of the language. There are no blocks outside of functions. Functions are the unit of scope.
+
+Static scoping aligns with my goal to make code look the same as it functions as much as possible. The rationale for this decision is very similar for the rationale found in the Scheme documentation[20] relating scoping back to the actual text of the program:
+
+> With static scoping, you can tell what binding a variable reference refers to just from looking at the text of the program; the referenced binding cannot depend on how the program is used. That is, the nesting of environments (their parent-child relationship) corresponds to the nesting of binding expressions in program text. (Because of this connection to the text of the program, static scoping is also called lexical scoping.) For each place where a variable is bound in a program there is a corresponding region of the program text within which the binding is effective.
+
+Static typing also allows for compile time validation of static types.
+
+Binding
+-------
+
+Binding is done by the following:
+
+    my_var ≡ 1
+
+Binding is the only statement in the language. It literally maps one expression to another such that they can now be used interchangably.
+
+Binding may also be accomplished using match syntax:
+
+    _ my_fun _ ≡ left right → 
+      function body
+
+This can be used to define new infix functions such as operators:
+
+    _ · _ ≡ a b →
+      a × b
+
+The language uses static binding. As discussed in the scoping section, this helps the code to be more readable and makes it easier to write code that executes in the way that it looks like it will. This also makes the language more approachable as this is a common approach in other popular languages (C, Java, Scheme, etc).[21]
+
+\newpage
+
 Types
 =====
 
@@ -244,52 +290,6 @@ An N×M matrix is simply an N-tuple of M-tuples. Here is an example identity mat
     0 0 0 1
 
 Notice that Objects, Vectors, and Matrices are types derived from tuples and lists, so they inherit the same operations. For example, the first row of the above matrix is just the first item in the tuple.
-
-\newpage
-
-Names, Scope, and Binding
-=========================
-
-Names
------
-
-Names may include any non-whitespace characters and must not start with a number. They may not include operators in their names. This is a standard choice present in most languages.
-
-There are no variable declarations. Variables are inferred to be local if they are assigned in a function. This prevents boilerplate declarations and generally requires fewer lines of code to perform a task. This is the same method used in Python.
-
-Scope
------
-
-The language uses static scoping. There are no C-like blocks, so functions are used to create a new scope. Function local variable scope is handled lexically, so nested functions have access to their parent's scope, but other called functions do not.[10]
-
-This choice allows functions to be the core unit of the language. There are no blocks outside of functions. Functions are the unit of scope.
-
-Static scoping aligns with my goal to make code look the same as it functions as much as possible. The rationale for this decision is very similar for the rationale found in the Scheme documentation[20] relating scoping back to the actual text of the program:
-
-> With static scoping, you can tell what binding a variable reference refers to just from looking at the text of the program; the referenced binding cannot depend on how the program is used. That is, the nesting of environments (their parent-child relationship) corresponds to the nesting of binding expressions in program text. (Because of this connection to the text of the program, static scoping is also called lexical scoping.) For each place where a variable is bound in a program there is a corresponding region of the program text within which the binding is effective.
-
-Static typing also allows for compile time validation of static types.
-
-Binding
--------
-
-Binding is done by the following:
-
-    my_var ≡ 1
-
-Binding is the only statement in the language. It literally maps one expression to another such that they can now be used interchangably.
-
-Binding may also be accomplished using match syntax:
-
-    _ my_fun _ ≡ left right → 
-      function body
-
-This can be used to define new infix functions such as operators:
-
-    _ · _ ≡ a b →
-      a × b
-
-The language uses static binding. As discussed in the scoping section, this helps the code to be more readable and makes it easier to write code that executes in the way that it looks like it will. This also makes the language more approachable as this is a common approach in other popular languages (C, Java, Scheme, etc).[21]
 
 \newpage
 
