@@ -220,6 +220,12 @@ Here's how a tuple may be bound to a variable:
 
 Tuple construction is differentiated from list construction by the lack of ellipses and the fact that tuple members may have different types.
 
+Note that where tuple elements can fit on a single 73 character line, they should be defines as:
+
+    my_tuple ≡ 1 "two" 3
+
+This syntax makes it much cleaner to define composite types such as matrices and objects.
+
 Objects
 -------
 
@@ -278,12 +284,19 @@ In most cases, strings can be defined unquoted and the quotes will be inferred.
 Vectors
 -------
 
-A vector can be thought of either as a fixed length list or a tuple whose elements all have the same type. It is constructed exactly as a tuple and identified using duck typing. Here's an example vector:
+A vector may be thought of either as a fixed length list or a tuple whose elements all have the same type. In terms of the type system, a vector can be used in all of the same ways as a list, with the exception of adding and removing elements. It is constructed exactly as a tuple and identified using duck typing. Here's an example vector:
 
     <indent>
     1
     2
     3
+
+And with binding:
+
+    my_vec ≡
+      1
+      2
+      3
 
 Matrices
 --------
@@ -295,6 +308,14 @@ An N×M matrix is simply an N-tuple of M-tuples. Here is an example identity mat
     0 1 0 0
     0 0 1 0
     0 0 0 1
+
+In context with a binding:
+
+    my_mat ≡
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      0 0 0 1
 
 Notice that Objects, Vectors, and Matrices are types derived from tuples and lists, so they inherit the same operations. For example, the first row of the above matrix is just the first item in the tuple.
 
