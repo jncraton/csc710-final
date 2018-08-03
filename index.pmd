@@ -11,20 +11,16 @@
 Guiding Principles
 ==================
 
-> Simplicity and straighforwardness proceed from conceptual integrity. Every part must reflect the same philosophies and the same balancing of desiderata. Every part must even use the same techniques in syntax and analogous notions in semantics. Ease of use, then, dictates unity of design, conceptual integrity. 
-> 
-> — Fredrick Brooks[14]
-
 Exactly One Correct Way
 -----------------------
-
-> I thought that it was a firm principle of language design — out of concern for programming as a human activity — that in all respects equivalent programs should have few possibilities for different representations (possibility for differences ideally not going beyond the arbitrary choice of identifiers and the arbitrary ordering of syntactically unordered components). Otherwise completely different styles of programming arise unnecessarily, thereby hampering maintainability, readability and what have you. This requires from the language designers the courage to make up their minds!
->
-> — Edsger Dijkstra [7][8]
 
 To ensure simplicity and readability, my first guiding principle is that the language should provide exactly one obviously correct way to perform a task. This will almost certainly make the language uncomfortable to actually use, but I thought it might be a fun excercise given that no one will actually be using this language anyhow.
 
 The language is opinionated about *how* it is written. The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
+
+> I thought that it was a firm principle of language design — out of concern for programming as a human activity — that in all respects equivalent programs should have few possibilities for different representations (possibility for differences ideally not going beyond the arbitrary choice of identifiers and the arbitrary ordering of syntactically unordered components). Otherwise completely different styles of programming arise unnecessarily, thereby hampering maintainability, readability and what have you. This requires from the language designers the courage to make up their minds!
+>
+> — Edsger Dijkstra [7][8]
 
 Correct Code Should Look Correct
 --------------------------------
@@ -86,7 +82,7 @@ Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many a
 Types
 =====
 
-This language is strongly and statically typed. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1].
+This language is strongly and statically typed. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1] as in Haskell.
 
 Literals
 --------
