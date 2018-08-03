@@ -128,7 +128,7 @@ The language uses static binding. As discussed in the scoping section, this help
 Types
 =====
 
-This language is strongly and statically typed. All types are automatically inferred. This would likely be implemented using a system such as Hindley-Milner[1] as in Haskell.
+This language is strongly and statically typed. The language contains no variable or type declarations. All types are automatically inferred at compile time. This would likely be implemented using a system such as Hindley-Milner[1] as in Haskell.
 
 Literals
 --------
