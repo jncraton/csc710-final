@@ -283,6 +283,14 @@ String notation should always be preferred to list of grapheme. In many cases, q
 
 In most cases, strings can be defined unquoted and the quotes will be inferred.
 
+Strings may be composed with expressions by using single quotes:
+
+    name ≡ "Jon"
+
+    greeting ≡ "Hello, my name is 'name'."
+
+    # Greeting is "Hello, my name is Jon."
+
 Vectors
 -------
 
@@ -489,7 +497,7 @@ It's natural for us to grasp ideas by example, and a computer should be able to 
 Argument Validation
 -------------------
 
-The language does not provide enums, but it does provide a mechanism to get some of the value that enums provide. While all types are automatically inferred, it is possible to declare a function whose argument values must be members of a certain set in addition to begin the correct type. The standard membership operator `∈` is used for this.
+The language does not provide enums, but it does provide a mechanism to get some of the value that enums provide. While all types are automatically inferred, it is possible to declare a function whose argument values must be members of a certain set in addition to begin the correct type. The standard membership operator `∈` is used for this. In essense, this is an extension of the type system. When possible, arguments will be validated at compile time, but they may also require runtime handling in the case of dynamic data being used as part of the validation.
 
 Here's an example of a function that may accept one of exactly four strings:
 
@@ -506,6 +514,25 @@ Here's an example of a function that may accept one of exactly four strings:
         East if dir = North
         West if dir = South
       }
+
+
+Default Lists
+-------------
+
+Several infinite sets commonly used in mathematics are defined as lists by the language:
+
+Set|Full Name|Definition[23]
+--------|----:
+ℕ|Natural Numbers|[0,1,2,…]
+ℤ|Integers|{p, −p : p ∈ ℕ ∪ {0}}
+ℙ|Prime Numbers|The set of all prime numbers
+ℚ|Rational Numbers|{p/q : p ∈ ℤ, q ∈ ℕ}
+ℝ|Real Numbers|
+
+Default lists can be very useful combined with argument validation:
+
+    get_by_id ≡ id ∈ ℕ → # Confirms id is a natural number
+      query("select id,name from people where id='id'")
 
 \newpage
 
@@ -597,3 +624,4 @@ References
 20. https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/Static-Scoping.html
 21. https://www.cs.oberlin.edu/~bob/cs275.spring14/Examples%20and%20Notes/February/Februrary%2028/Lexical%20and%20Dynamic%20Binding.pdf
 22. https://docs.python.org/3/faq/programming.html#what-are-the-rules-for-local-and-global-variables-in-python
+23. https://en.wikipedia.org/wiki/List_of_mathematical_symbols
