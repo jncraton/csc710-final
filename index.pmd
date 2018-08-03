@@ -162,6 +162,8 @@ Functions may be bound to other objects. When they are called in this way, the f
     
     my_obj.func()
 
+Functions automatically return their final expression.
+
 Lists
 -----
 
@@ -356,6 +358,14 @@ Here's how match syntax for the above `if` expression looks:
 
 This matching sytnax replaces the need for traditional if-then structures. This is similar to how piecewise functions may be defined in Haskell, except that the function declaration is implicit, immediately called, and does not create a new scope.
 
+Because functions automatically return their final expression, a piecewise function can be defined as:
+
+    dirac_delta ≡ x →
+      {
+        1 if x = 0
+        0
+      }
+      
 Loops
 -----
 
@@ -386,7 +396,7 @@ Here's one example of using these resutls:
     squares ≡ [1…9] ↦ x →
       x²
 
-    # squares is [1,4,9,16,25,…]
+    # squares is bound to [1,4,9,16,25,…]
 
 Summation
 ---------
@@ -411,7 +421,7 @@ Truthiness of some function over a list can also be found as:
 Comparison
 ----------
 
-Comparison - Comparison is always done by value.
+Comparison is always done by value.
 
 Mathematical syntax is used whenever possible for comparison operators. For example:
 
