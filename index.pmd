@@ -150,7 +150,7 @@ Functions should be seen as the core construct of the language. There is exactly
     params →
       function body
 
-To assign a function to a variable, one would do the following:
+To bind a function to a variable, one would do the following:
 
     my_fn ≡ params →
       function body
@@ -169,7 +169,7 @@ Lists
 >
 > — Philip Greenspun [4]
 
-Lists are ordered groups of items of the same time. They do not have a fixed length.
+Lists are ordered groups of items of the same type. They do not have a fixed length, and may be infinite.
 
 The following expression returns a list of strings:
 
@@ -187,13 +187,15 @@ my_list ≡
 
 Lists can be used as sets where duplicate members are ignored by using set-based union and intersection operations:
 
-    fruits1 =
+    fruits1 ≡
       apple
       pear
+      …
     
-    fruits2 = 
+    fruits2 ≡ 
       apple
       peach
+      …
     
     fruits = fruits1 ∪ fruits2
     
@@ -205,14 +207,16 @@ Tuples
 Tuples are a data type of fixed size composed of other datatypes. The following would be a tuple of length 3:
 
     <indent>
-    1 "two" 3
-
-Tuples may optionally be defined over multiple lines as:
-
-    <indent>
     1
     "two"
     3
+
+Here's how a tuple may be bound to a variable:
+
+    my_tuple ≡
+        1
+        "two"
+        3
 
 Tuple construction is differentiated from list construction by the lack of ellipses and the fact that tuple members may have different types.
 
