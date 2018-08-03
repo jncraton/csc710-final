@@ -556,7 +556,7 @@ Vector Magnitude
 Calculates the magnitude (length) of a vector
 
     v ≡ 
-      1,2,3
+      1 2 3
 
     v.mag ≡ v →
       √Σ v ↦ x →
