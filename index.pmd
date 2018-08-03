@@ -273,6 +273,8 @@ Is precisely the same as:
 
 String notation should always be preferred to list of grapheme. In many cases, quotes can be left off and strings will still be discovered correctly.
 
+In most cases, strings can be defined unquoted and the quotes will be inferred.
+
 Vectors
 -------
 
