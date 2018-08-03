@@ -140,7 +140,7 @@ The following literals are provided:
 - Boolean - A boolean value. May be either True or False.
 - Number - A scalable number supporting unlimited integer size, prefect decmial precision up to 3 points after the decimal, and precision no worse than an IEEE 64-bit float for all operations. This allows the number type to be well suited to nearly all numeric operations including scientific tasks, cryptographic operations, and handling fractional money without loss of precision. 
   - e.g. 1.0 or 1 or 1e300
-  - Numbers may also be postfixed with a string indicating a secondary type. These types are automatically handle by operations on the numbers. For example `2m * 2m` would result in `4m²`. 
+  - Numbers may also be postfixed with a string indicating a secondary type. These types are automatically handled by operations on the numbers. For example `2m * 2m` would result in `4m²`. 
 
 Functions
 ---------
