@@ -377,8 +377,6 @@ Because functions automatically return their final expression, a piecewise funct
 Loops
 -----
 
----
-
 "Loops" are provided as:
 
     list ↦ i →
