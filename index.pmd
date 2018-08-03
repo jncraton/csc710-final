@@ -87,7 +87,7 @@ Names
 
 Names may include any non-whitespace characters and must not start with a number. They may not include operators in their names. This is a standard choice present in most languages.
 
-There are no variable declarations. Variables are inferred to be local if they are assigned in a function. This prevents boilerplate declarations and generally requires fewer lines of code to perform a task. This is the same method used in Python.
+There are no variable declarations. Variables are inferred to be local if they are assigned in a function. This prevents boilerplate declarations and generally requires fewer lines of code to perform a task. This is the same method used in Python. [22]
 
 Scope
 -----
@@ -558,3 +558,4 @@ References
 19. Crockford, Douglas. JavaScript: The Good Parts: The Good Parts. " O'Reilly Media, Inc.", 2008.
 20. https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/Static-Scoping.html
 21. https://www.cs.oberlin.edu/~bob/cs275.spring14/Examples%20and%20Notes/February/Februrary%2028/Lexical%20and%20Dynamic%20Binding.pdf
+22. https://docs.python.org/3/faq/programming.html#what-are-the-rules-for-local-and-global-variables-in-python
