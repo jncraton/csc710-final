@@ -14,7 +14,7 @@ Guiding Principles
 Exactly One Correct Way
 -----------------------
 
-To ensure simplicity and readability, my first guiding principle is that the language should provide exactly one obviously correct way to perform a task. This will almost certainly make the language uncomfortable to actually use, but I thought it might be a fun excercise given that no one will actually be using this language anyhow.
+To ensure simplicity and readability, my first guiding principle is that the language should provide exactly one obviously correct way to perform a task. This will almost certainly make the language uncomfortable to actually use, but I thought it might be a fun exercise given that no one will actually be using this language anyhow.
 
 The language is opinionated about *how* it is written. The language has an embedded code formatter to bring code up to spec with very specific and required style guidelines.
 
@@ -70,12 +70,12 @@ Prioritize Existing Notation
 
 Where existing mathematical notation exists, it should be used in place of inventing notation or using notation from other programming languages. In this way, the language is somewhat like APL[18].
 
-Unicode is required and used in key parts of the language. If an existing unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
+Unicode is required and used in key parts of the language. If an existing Unicode character exists for some operation, it should be used in favor of traditional ASCII replacements.
 
 Details Optional
 ----------------
 
-Boilerplate and extraneous syntax should be kept to an absolute miniumum. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
+Boilerplate and extraneous syntax should be kept to an absolute minimum. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
 
 \newpage
 
@@ -109,7 +109,7 @@ Binding is done by the following:
 
     my_var ≡ 1
 
-Binding is the only statement in the language. It literally maps one expression to another such that they can now be used interchangably.
+Binding is the only statement in the language. It literally maps one expression to another such that they can now be used interchangeably.
 
 Binding may also be accomplished using match syntax:
 
@@ -138,14 +138,14 @@ The following literals are provided:
 - Grapheme - A single Unicode grapheme.
   - e.g. 'a' or '→'
 - Boolean - A boolean value. May be either True or False.
-- Number - A scalable number supporting unlimited integer size, prefect decmial precision up to 3 points after the decimal, and precision no worse than an IEEE 64-bit float for all operations. This allows the number type to be well suited to nearly all numeric operations including scientific tasks, cryptographic operations, and handling fractional money without loss of precision. 
+- Number - A scalable number supporting unlimited integer size, prefect decimal precision up to 3 points after the decimal, and precision no worse than an IEEE 64-bit float for all operations. This allows the number type to be well suited to nearly all numeric operations including scientific tasks, cryptographic operations, and handling fractional money without loss of precision. 
   - e.g. 1.0 or 1 or 1e300
   - Numbers may also be postfixed with a string indicating a secondary type. These types are automatically handled by operations on the numbers. For example `2m * 2m` would result in `4m²`. 
 
 Functions
 ---------
 
-Functions should be seen as the core construct of the language. There is exactly one way to define a function. Note that the following is an expression, and not a statment. It returns a function:
+Functions should be seen as the core construct of the language. There is exactly one way to define a function. Note that the following is an expression, and not a statement. It returns a function:
 
     params →
       function body
@@ -206,7 +206,7 @@ Lists can be used as sets where duplicate members are ignored by using set-based
 Tuples
 ------
 
-Tuples are a data type of fixed size composed of other datatypes. The following would be a tuple of length 3:
+Tuples are a data type of fixed size composed of other data types. The following would be a tuple of length 3:
 
     <indent>
     1
@@ -237,7 +237,7 @@ Objects are simply lists whose members are key/value tuples. When a list is made
     item1 1
     item2 2
 
-This expression may be bound to a varibale as:
+This expression may be bound to a variable as:
 
     my_obj ≡ 
       item1 1
@@ -364,7 +364,7 @@ Here's how match syntax for the above `if` expression looks:
         20
       }
 
-This matching sytnax replaces the need for traditional if-then structures. This is similar to how piecewise functions may be defined in Haskell, except that the function declaration is implicit, immediately called, and does not create a new scope.
+This matching syntax replaces the need for traditional if-then structures. This is similar to how piecewise functions may be defined in Haskell, except that the function declaration is implicit, immediately called, and does not create a new scope.
 
 Because functions automatically return their final expression, a piecewise function can be defined as:
 
@@ -397,7 +397,7 @@ if __name__ == '__main__':
 
 The map expression returns a list of all the return values from the function calls. This list will be in the same order as the original list despite not necessarily being executed in order.
 
-Here's one example of using these resutls:
+Here's one example of using these results:
 
     squares ≡ [1…9] ↦ x →
       x²
@@ -495,7 +495,7 @@ It's natural for us to grasp ideas by example, and a computer should be able to 
 Argument Validation
 -------------------
 
-The language does not provide enums, but it does provide a mechanism to get some of the value that enums provide. While all types are automatically inferred, it is possible to declare a function whose argument values must be members of a certain set in addition to being the correct type. The standard membership operator `∈` is used for this. In essense, this is an extension of the type system. When possible, arguments will be validated at compile time, but they may also require runtime handling in the case of dynamic data being used as part of the validation.
+The language does not provide enums, but it does provide a mechanism to get some of the value that enums provide. While all types are automatically inferred, it is possible to declare a function whose argument values must be members of a certain set in addition to being the correct type. The standard membership operator `∈` is used for this. In essence, this is an extension of the type system. When possible, arguments will be validated at compile time, but they may also require runtime handling in the case of dynamic data being used as part of the validation.
 
 Here's an example of a function that may accept one of exactly four strings:
 
@@ -590,7 +590,7 @@ I saw this project as an opportunity to combine distinctive attributes from many
 
 The final language syntax ended up something like a hybrid of APL and Python.It leans on more function properties found in Lisp and Haskell. I've tried to ignore the practical challenges of implementing this language, but I think it would be incredibly difficult to parse and for that reason also very difficult to actually write code in.
 
-I wanted to explore the concept of trusting the compiler to be "smart". This seems like a good idea on the surface, but it ultimately creates a language with all of the anbiguity of English. At the gut level, I have appreciated some of the "intelligence" found in other languages that allow a programmer to leave out verbose syntax. One example of this would be optional semicolons in Javascript. It is nice to not need semicolons to terminate statements, but ultimately it creates some strange edge cases where statements are terminated in places the programmer did not expect. This is one of the reasons that Crockford and others recommend always using semicolons in JS even though they are not needed.[19]
+I wanted to explore the concept of trusting the compiler to be "smart". This seems like a good idea on the surface, but it ultimately creates a language with all of the ambiguity of English. At the gut level, I have appreciated some of the "intelligence" found in other languages that allow a programmer to leave out verbose syntax. One example of this would be optional semicolons in Javascript. It is nice to not need semicolons to terminate statements, but ultimately it creates some strange edge cases where statements are terminated in places the programmer did not expect. This is one of the reasons that Crockford and others recommend always using semicolons in JS even though they are not needed.[19]
 
 This language provided a great platform for me to explore language design, but it is not anything that I would want to use to write serious software. The ambiguity of the language and use of Unicode characters throughout would make it very challenging to write correct code in. Ultimately, this was a fantastic learning experience, but I think I still prefer using C/C++ or Rust.
 
