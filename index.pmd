@@ -73,7 +73,7 @@ Unicode is required and used in key parts of the language. If an existing Unicod
 Details Optional
 ----------------
 
-Boilerplate and extraneous syntax should be kept to an absolute minimum. Many aspects of the syntax are optional and should only be used when required to address ambiguities.
+Boilerplate and extraneous syntax should be kept to an absolute minimum. Many aspects of the syntax are optional and should only be used when required to address ambiguities. An automatic code formatter is provided to remove extraneous syntax among other functions.
 
 \newpage
 
