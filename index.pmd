@@ -184,10 +184,10 @@ The following expression returns a list of strings:
 
 This can be bound to a variable as:
 
-my_list ≡ 
-  "item1"
-  "item2"
-  …
+    my_list ≡ 
+      "item1"
+      "item2"
+      …
 
 Lists can be used as sets where duplicate members are ignored by using set-based union and intersection operations:
 
@@ -226,7 +226,7 @@ Here's how a tuple may be bound to a variable:
 
 Tuple construction is differentiated from list construction by the lack of ellipses and the fact that tuple members may have different types.
 
-Note that where tuple elements can fit on a single 73 character line, they should be defines as:
+Note that where tuple elements can fit on a single 73 character line, they should be defined as:
 
     my_tuple ≡ 1 "two" 3
 
