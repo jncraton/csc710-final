@@ -22,6 +22,8 @@ The language is opinionated about *how* it is written. The language has an embed
 >
 > — Edsger Dijkstra [7][8]
 
+\newpage
+
 Correct Code Should Look Correct
 --------------------------------
 
@@ -31,15 +33,11 @@ Correct Code Should Look Correct
 
 In order to reduce errors and improve readability, every effort was made to ensure that code that does something looks like it is doing that. Consider this classic example from C-like language. Here we have a for loop:
 
-    int i;
-
     for (int i = 0; i<=10; i++)
       i = i*i
       print(i)
       
 At first glance, this may look like it will print out the squares of numbers from 1 to 10. It will actually just print 100. The above in functionally the same as this:
-
-    int i;
 
     for (int i = 0; i<=10; i++)
       i = i*i
@@ -47,8 +45,6 @@ At first glance, this may look like it will print out the squares of numbers fro
     print(i)
 
 It should be written as:
-
-    int i;
 
     for (int i = 0; i<=10; i++) {
       i = i*i
@@ -60,6 +56,8 @@ These sorts of shenanigans would ideally not be part of a sound programming lang
 > A common mistake people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.
 > 
 > — Douglas Adams[13]
+
+\newpage
 
 Prioritize Existing Notation
 ----------------------------
@@ -142,6 +140,8 @@ The following literals are provided:
   - e.g. 1.0 or 1 or 1e300
   - Numbers may also be postfixed with a string indicating a secondary type. These types are automatically handled by operations on the numbers. For example `2m * 2m` would result in `4m²`. 
 
+\newpage
+
 Functions
 ---------
 
@@ -163,6 +163,8 @@ Functions may be bound to other objects. When they are called in this way, the f
     my_obj.func()
 
 Functions automatically return their final expression.
+
+\newpage
 
 Lists
 -----
@@ -203,6 +205,8 @@ Lists can be used as sets where duplicate members are ignored by using set-based
     
     # fruits is now {apple,pear,peach}
 
+\newpage
+
 Tuples
 ------
 
@@ -227,6 +231,8 @@ Note that where tuple elements can fit on a single 73 character line, they shoul
     my_tuple ≡ 1 "two" 3
 
 This syntax makes it much cleaner to define composite types such as matrices and objects.
+
+\newpage
 
 Objects
 -------
@@ -260,6 +266,8 @@ Note that the key following the dot is a string, not an identifier, so it may ne
     my_obj.item-2 # Fails
     my_obj."item-2" # Works
 
+\newpage
+
 Strings
 -------
 
@@ -290,6 +298,8 @@ Strings may be composed with expressions by using single quotes:
     greeting ≡ "Hello, my name is 'name'."
 
     # Greeting is "Hello, my name is Jon."
+
+\newpage
 
 Vectors
 -------
@@ -338,6 +348,10 @@ Control Flow
 > 
 > — Guy Steele, co-author of the Java spec [5] 
 
+Control flow in this languages focuses on functions and higher-order functions to call them. It also emphasizes that all control structures are expressions rather than statement so that they can be used as values.
+
+\newpage
+
 Matching
 --------
 
@@ -373,6 +387,8 @@ Because functions automatically return their final expression, a piecewise funct
         1 if x = 0
         0
       }
+
+\newpage
       
 Loops
 -----
@@ -561,7 +577,9 @@ Calculates the magnitude (length) of a vector
     v.mag ≡ v →
       √Σ v ↦ x →
         x²
-        
+
+\newpage
+  
 Fibonacci
 ---------
 
